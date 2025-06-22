@@ -36,3 +36,19 @@ cd 01-bash-wsl-setup
 chmod +x server-setup.sh
 ./server-setup.sh
 ```
+
+## 🧰 02 - Git Versioning Tools
+
+This folder helps automate and standardize Git configuration and GitHub authentication across machines.
+
+---
+
+### 🔐 SSH Key Setup
+
+Use `generate-ssh.sh` to create and upload a new SSH key:
+
+```bash
+cd 02-git-versioning
+chmod +x generate-ssh.sh
+./generate-ssh.sh
+```
