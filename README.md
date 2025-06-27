@@ -41,8 +41,6 @@ chmod +x server-setup.sh
 
 This folder helps automate and standardize Git configuration and GitHub authentication across machines.
 
----
-
 ### 🔐 SSH Key Setup
 
 Use `generate-ssh.sh` to create and upload a new SSH key:

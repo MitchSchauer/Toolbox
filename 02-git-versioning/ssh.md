@@ -17,7 +17,7 @@ The script:
 ## 🧰 Prerequisites
 
 - A GitHub account
-- A [Personal Access Token](https://github.com/settings/tokens) (PAT) with `write:public_key` permission
+- A [Personal Access Token](https://github.com/settings/tokens) (PAT)"classic" with `write:public_key` permission
 - A terminal with `ssh-keygen`, `ssh-agent`, and `curl` installed (common in WSL, Linux, and macOS)
 
 ---
@@ -48,9 +48,9 @@ The script:
 
   👉 https://github.com/settings/tokens
 
-#### 🛠️ 2. Click "Generate new token" → Choose: "Fine-grained token"
+#### 🛠️ 2. Click "Generate new token" → Choose: "Classic"
 
-  Or use a classic token for simpler use cases, but GitHub recommends fine-grained for better security.
+  Or use a classic token for simpler use cases, but GitHub recommends fine-grained for better security. Fine-grained will have to be set maually on [GitHub SSH Keys](https://github.com/settings/keys).
 
 #### 🧾 3. Fill in token details:
   Name: something like ssh-key-upload
@@ -112,6 +112,7 @@ Replace `<key_name>` with the name you chose during setup.
 ## 🛠️ Troubleshooting
 
 - GitHub not recognizing your key? Confirm it was uploaded: [GitHub SSH Keys](https://github.com/settings/keys)
+- ^ you can also add the key here 
 - Use this to debug SSH issues:
 
 ```bash
@@ -124,6 +125,12 @@ Replace `<key_name>` with the name you chose during setup.
   ssh-add ~/.ssh/id_rsa_<key_name>
   ```
 
+- Debug
+
+```bash
+ssh -vT git@github.com
+
+```
 ---
 
 ## 📚 References
