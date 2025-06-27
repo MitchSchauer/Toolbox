@@ -1,7 +1,7 @@
 # 🔐 SSH Key Setup for GitHub
 
 This guide walks you through using the `generate-ssh.sh` script to securely generate an SSH key, add it to your local SSH agent, and upload the public key to your GitHub account using a Personal Access Token (PAT).
-
+test
 ---
 
 ## 🚀 Script Overview
