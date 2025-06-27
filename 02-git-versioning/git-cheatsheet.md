@@ -43,7 +43,6 @@ git stash pop
 git rebase -i HEAD~3
 ```
 
-
 ---
 
 ### 📖 `README.md`
@@ -61,3 +60,4 @@ Use `generate-ssh.sh` to create and upload a new SSH key:
 ```bash
 chmod +x generate-ssh.sh
 ./generate-ssh.sh
+```
