@@ -6,7 +6,7 @@ echo "🔐 SSH Key Setup for GitHub"
 read -p "Enter your GitHub email: " email
 read -p "Enter a name for this key (e.g. wsl, dev-laptop): " key_name
 
-echo "ℹ️  Create a GitHub PAT (classic, with write:public_key) here:"
+echo "Create a GitHub PAT (classic, with write:public_key) here:"
 echo "   👉 https://github.com/settings/tokens"
 read -s -p "Enter your GitHub Personal Access Token (PAT): " pat
 echo ""
