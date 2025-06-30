@@ -15,7 +15,7 @@ git clone git@github.com:yourname/repo.git
 ```bash
 git status
 git add .
-git commit -m "describe changes"
+git commit -m "uPDATES"
 git push origin main
 ```
 
