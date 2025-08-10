@@ -13,7 +13,7 @@
   - Computer Science (CS)
   - Software Engineering (SWE)
   - etc.
-- Should cover the basics for automation (Python), containerization (Docker), database interaction (PostgreSQL), Infrastructure as Code (IaC) (Terraform)
+- Should cover the basics for automation (Python), containerization (Docker), database interaction (PostgreSQL)
 
 ## Summary
 - **Main Operating System (OS):** Windows 11 (applicable to Windows 10)
@@ -24,7 +24,6 @@
 - **Python Environment Manager:** Miniconda
 - **Containerization:** Docker Desktop (installed on Windows)
 - **Database:** PostgreSQL + Supabase
-- **Infrastructure as Code (IaC):** Terraform
 
 ## Setup Windows Subsystem for Linux (WSL)
 
@@ -38,33 +37,33 @@
 
 ### Install / Update WSL
 - Using Command Prompt (CMD) run the following several times until the latest version is installed
-bash
+```bash
 wsl --update
-
+```
 
 ### Check available Linux distros
-bash
+```bash
 wsl --list --online
-
+```
 
 ### Choose and install Linux distro
 
-bash
+```bash
 wsl --install -d Ubuntu
-
+```
 - Define UNIX username
 - Define password
 
 ### Uninstall distribution
 - If you eventually need to uninstall a Linux distribution from WSL, go to CMD
 - Get the distribution name
-bash
+```bash
 wsl --list
-
+```
 - Unregister the distribution, **BE CAREFUL**, everything will be deleted, backup your data if needed
-bash
+```bash
 wsl --unregister Ubuntu
-
+```
 - Then go to "Add or remove programs", search for the distribution name and uninstall it
 
 ### Install terminal
@@ -75,48 +74,48 @@ From Microsoft Store install the official Terminal app by Microsoft Corporation,
 Make Linux distro the default terminal on Terminal app settings
 
 ### Update and Upgrade Linux distro
-bash
+```bash
 sudo apt update && sudo apt upgrade -y
-
+```
 
 ### Tips and Shortcuts
 - From Linux terminal, run the following command to open Windows file explorer in the current Linux directory
 - Useful to transfer files etc.
-bash
+```bash
 explorer.exe .
-
+```
 Use in file explorer search to open terminal in current directory
-bash
+```bash
 cmd
-
+```
 
 ### Useful references
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 
 ## Install Git
 Git should be installed by default, run the following to check
-bash
+```bash
 git
-
+```
 If not installed
-bash
+```bash
 sudo apt install git
-
+```
 
 ### Generate SSH key
 - Use same email as GitHub account
 - Replace the email in the following command and run it
-bash
+```bash
 ssh-keygen -t ed25519 -C "schauer.mitchell@gmail.com"
-
+```
 - Proceed with empty filename, just press ENTER
 - Add a passphrase that is easy to remember, you will type it often
 - The ~/.ssh folder is created
 - Run the following to see it
 
-bash
+```bash
 la ~/.ssh
-
+```
 
 ### Create GitHub account if you do not have one yet
 
@@ -124,9 +123,9 @@ la ~/.ssh
 - Check the contents of the public key generated in the last step
 - Make sure it is the file with the .pub extension
 
-bash
+```bash
 cat ~/.ssh/id_ed25519.pub
-
+```
 - Copy the whole file content
 - Go to GitHub account: Settings -> SSH and GPG keys -> New SSH key
 - https://github.com/settings/keys
@@ -139,17 +138,17 @@ cat ~/.ssh/id_ed25519.pub
 
 ### Test SSH connection to GitHub
 Run the following
-bash
+```bash
 ssh -T git@github.com
-
+```
 - You will see a key fingerprint (if this is the first time you are trying to connect with GitHub via SSH)
 - Before moving forward, copy it
 - Go to https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints
 - Confirm if it matches the respective encryption algorithm (e.g. Ed25519)
 - For example:
-bash
+```bash
 SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
-
+```
 - If it matches, type yes and hit ENTER to move forward
 - Enter your passphrase
 - You should have been successfully authenticated
@@ -159,67 +158,67 @@ SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
 - Two files have been created inside ~/.ssh folder known_hosts and known_hosts.old
 - Run the following to check the contents of known_hosts
 
-bash
+```bash
 cat ~/.ssh/known_hosts
-
+```
 - Go to https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints
 
 - Confirm if all fingerprints from the file match the ones from the website (should be 3)
 - For example 1st:
-bash
+```bash
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
-
+```
 - For example 2nd:
-bash
+```bash
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
-
+```
 - For example 3rd:
-bash
+```bash
 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
-
+```
 - If everything matches perfectly, move forward
 
 ### Remove old known hosts file
-bash
+```bash
 rm ~/.ssh/known_hosts.old
-
+```
 
 ### Configure Git with your identity
 - Run the following to specify who is going to sign your commits with an user name and email
-bash
+```bash
 git config --global user.name "Mitch Schauer"
 git config --global user.email Schauer.mitchell@gmail.com
-
+```
 - The ~/.gitconfig is created
 - Run the following to confirm your identity has been added
-bash
+```bash
 cat ~/.gitconfig
-
+```
 
 ### Create folder for projects on user's home directory
 - This folder will contain all your projects, name it git, projects, code or whatever
 - I call mine projects
-bash
+```bash
 mkdir ~/projects
-
+```
 
 ### Clone original Toolbox repo
 - From this point forward, the process applies to pretty much any coding project you might be following, or creating yourself
 - I will exemplify it using the LLM Zoomcamp course by DataTalksClub
 - Run something similar to the following to clone the original course repository into the git folder
 - If your folder has a different name than git, replace it, get the SSH address from the target GitHub repo
-bash
+```bash
 cd ~/projects
 git clone https://github.com/MitchSchauer/Toolbox
-
+```
 - Enter your passphrase (we will automate this further ahead)
 - I do this to have easy local access to the course materials
 - I just run the following each time I start working, to ensure my local branch is up to date
-bash
+```bash
 cd ~/projects/toolbox
 git fetch
 git pull
-
+```
 
 ### Create and clone your toolbox repo
 - Go to your GitHub account
@@ -230,41 +229,41 @@ git pull
 - **Initialize this repository with: =** Enable *Add a README file*
 - Create repository
 - Clone the repository by running something similar to the following, replace with yours
-bash
+```bash
 cd ~/projects
 git clone git@github.com:MitchSchauer/Toolbox
-
+```
 - Enter your passphrase (we will automate this further ahead)
 
 ## Setup Linux Terminals
 
 ### Backup .bashrc file
 Just in case we mess something up
-bash
+```bash
 cp ~/.bashrc ~/.bashrc.bak
-
+```
 
 ### Customize BASH prompt for Git
 - Let's customize the BASH prompt to include the Git branch name on it, each time we are in a .git folder
 - Run the following to edit the file
-bash
+```bash
 nano ~/.bashrc
-
+```
 - Use the DOWN ARROW or PAGE DOWN key to find the following rows
-bash
+```bash
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
-
+```
 - Delete them by pressing CTRL + K after positioning the cursor on each of them, using the keyboard arrows
 - **NOTE:** Do not delete the following row
-bash
+```bash
 unset color_prompt force_color_prompt
-
+```
 - Add the following rows to replace them
-bash
+```bash
 # Add git branch to prompt
 parse_git_branch() {
     git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
@@ -275,7 +274,7 @@ if [ "$color_prompt" = yes ]; then
 else
  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
 fi
-
+```
 - Save the file by pressing CTRL + X, then hit Y and then ENTER
 - The PS1 variable defines what appears in the terminal prompt, using ANSI codes for colors, etc.
 - We use the function parse_git_branch and a regular expression to get the activated branch whenever we are in a .git folder
@@ -287,32 +286,32 @@ Open a new BASH window for the changes to take effect
 
 ### Check Git branch name on BASH prompt
 To validate this, go to a Git repository such as
-bash
+```bash
 cd ~/Projects/Toolbox
-
+```
 Verify that the selected branch appears in the prompt automatically, most likely the main branch
 
 ### Delete .bashrc backup
 If everything went well, delete the backup file (or not)
-bash
+```bash
 rm ~/.bashrc.bak
-
+```
 
 ### Install zsh
-bash
+```bash
 sudo apt install zsh
-
+```
 
 ### Install OhMyZsh
-bash
+```bash
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
+```
 
 ### Automate SSH-Agent passphrases for both BASH and ZSH
 
 - Append the following code to the bottom of both .bashrc and .zshrc files
 - This way you only have to enter your passphrase once, per terminal, per computer start up
-bash
+```bash
 # Auto-lauching ssh-agent
 env=~/.ssh/agent.env
 
@@ -335,19 +334,19 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 
 unset env
-
+```
 Use the following commands
-bash
+```bash
 nano ~/.bashrc
-
-bash
+```
+```bash
 nano ~/.zshrc
-
+```
 - Open multiple BASH and ZSH windows to validate
 - Test SSH connection to GitHub
-bash
+```bash
 ssh -T git@github.com
-
+```
 
 ## Setup VS Code With WSL (IDE)
 
@@ -374,13 +373,13 @@ https://code.visualstudio.com/download
 - Close VS Code
 - Go to a project folder on Linux terminal
 - Execute the following from that folder
-bash
+```bash
 code .
-
+```
 - Or
-bash
+```bash
 code ~/projects/Toolbox
-
+```
 - A remote connection to Linux distribution will be created after the automatic setup of VS Code Server
 - We will work on VS Code installed on Windows, with automatic remote connections to Ubuntu, through WSL2, leveraging both OSs
 - Trust the authors if prompted
@@ -413,9 +412,9 @@ Super useful functionality, to debug any type of code in an interactive way
 - Install Code Runner 
 - Run code snippet or code file for multiple languages
 - In VSC go to Settings > Code Actions On Save paste: 
-bash
+```bash
 "code-runner.runInTerminal": true,
-
+```
 ### Check Remote Explorer panel
 - Shows the WSL targets, in this case Ubuntu, where we are connected to
 
@@ -437,9 +436,9 @@ bash
 
 ### Check Source Control panel
 - To follow this, switch to your course repository
-bash
+```bash
 code ~/projects/Toolbox
-
+```
 - Since the current work folder is also a Git repository, the Source Control panel will show file changes and enable you to add, commit and push changes directly to the remote repository
 - It even shows the differences for edited files, line by line
 - Open a ZSH within VS Code with CTRL + ~
@@ -464,14 +463,14 @@ code ~/projects/Toolbox
 
 ### Install latest version of Miniconda
 - Run the following to install Miniconda
-bash
+```bash
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ~/miniconda3/bin/conda init bash
 ~/miniconda3/bin/conda init zsh
-
+```
 - Refresh terminal
 - Miniconda files will be stored on the ~/miniconda3 folder, containing the envs we create in the future
 
@@ -480,79 +479,79 @@ rm -rf ~/miniconda3/miniconda.sh
 
 ![alt text](../assets/image.png)
 - I do not like this, so to prevent conda from activating the base env by default run the following
-bash
+```bash
 conda config --set auto_activate_base false
-
+```
 - Refresh the terminal, it does not activate anymore
 
 ### Interact with conda environments
 - Create new conda env for project named toolbox-env and install specific Python version automatically
-bash
+```bash
 conda create -n toolbox-env python=3.13
-
+```
 - -n is the simplification of --name
 - I like to use the project folder name + -env in the end
 - Change the project name and/or Python version if needed
 - Activate conda env, its name will appear behind the prompt
-bash
+```bash
 conda activate toolbox-env
-
+```
 - List envs (if one is activated, will show asterisk on it)
-bash
+```bash
 conda env list
-
+```
 - Deactivate the current env, its name will disappear behind the prompt
-bash
+```bash
 conda deactivate
-
+```
 - Delete conda env
-bash
+```bash
 conda remove -n toolbox-env --all
-
+```
 - List envs, it is removed
-bash
+```bash
 conda env list
-
+```
 - We can create the same env by avoiding typing the env name, from the target project folder
-bash
+```bash
 conda create -n "$(basename $(pwd)-env)" python=3.13
-
+```
 - Check automatic folder name retrieval
-bash
+```bash
 echo "$(basename $(pwd)-env)"
-
+```
 - If you omit python=3.13, a new env will be created without Python and you would need to install it manually, after its activation
-bash
+```bash
 conda create --name toolbox-env
-
+```
 - Activate conda env
-bash
+```bash
 conda activate Toolbox-env
-
+```
 - Run Python, without success
-bash
+```bash
 python
-
+```
 - Install Python manually in the activated env
-bash
+```bash
 conda install python=3.13
-
+```
 - Run Python, with success
-bash
+```bash
 python
-
+```
 - Type exit() to exit the interpreter
 
 ### Open project on VS Code
 Open VS Code from project folder by running
-bash
+```bash
 code ~/projects/Toolbox
-
+```
 
 ### Create Python file
-bash
+```bash
 code script.py
-
+```
 - Save the file
 
 ### Install extension
@@ -577,7 +576,7 @@ Python by Microsoft, should be prompted automatically
 - Jupyter notebook on browser with server
 #### Script
 - Add the following to script.py
-python
+```python
 # this is a comment
 print('hello world')
 
@@ -585,12 +584,12 @@ print('hello world')
 x = 2
 y = 5
 print(x * y)
-
+```
 - Execute the whole script using UI "play" symbol on top right corner, this will use the current activated conda env interpreter
 - Or via terminal
-bash
+```bash
 python script.py
-
+```
 - Check the outputs on terminal
 
 #### Jupyter cells
@@ -619,20 +618,20 @@ python script.py
 #### Jupyter notebook on browser with server
 - If you really want to run a Jupyter notebook on browser with a server, do the following
 - With the proper conda env activated, install Jupyter package
-bash
+```bash
 pip install jupyter
-
+```
 - Initialize Jupyter server
-bash
+```bash
 jupyter notebook
-
+```
 - The current terminal will be dedicated to it
 - A port will be forward automatically and associated to the server
 - Open in browser
 - Copy token after running the following in a new terminal (after ?token=)
-bash
+```bash
 jupyter server list
-
+```
 - Paste token on browser
 - Enter a new password
 - "Log in and set new password"
@@ -644,9 +643,9 @@ jupyter server list
 ## 🐳Download and install Docker Desktop on Windows
 
 - Run the following and confirm that Docker is not accessible
-bash
+```bash
 docker
-
+```
 - "Download for Windows" from https://www.docker.com/products/docker-desktop/
 - Start installation
 - If your Windows version is not Home, and instead is Enterprise or other, you might see an additional tick box during setup, if so, do use WSL2 instead of Hyper-V
@@ -668,42 +667,42 @@ docker
 - Apply & restart
 - Cancel
 - Now the following command should output something on your Linux terminal
-bash
+```bash
 docker
-
+```
 - Run your first test container
-bash
+```bash
 docker run hello-world
-
+```
 - If you get an error similar to the following
-bash
+```bash
 docker: Error response from daemon: Head "https://registry-1.docker.io/v2/docker/welcome-to-docker/manifests/latest": unauthorized: incorrect username or password.
-
+```
 - Log out from Docker and login again **via terminal**, replacing your username or email
-bash
+```bash
 docker logout
 docker login --username mitchell.schauer@gmail.com
-
+```
 - Enter password, "Login Succeeded"
 - Run your first test container
-bash
+```bash
 docker run hello-world
-
+```
 - The image should be fetched from the server and the container will run, showing the test message output "Hello from Docker!"
 - Open Docker Desktop and see the container with a random name and its image
 - Run another test container
-bash
+```bash
 docker run -d -p 8080:80 docker/welcome-to-docker
-
+```
 - Open browser and go to http://localhost:8080/
 - You can also run an Ubuntu container (run exit to quit)
-bash
+```bash
 docker run -it ubuntu
-
+```
 - Or even a Python container (run exit() to quit)
-bash
+```bash
 docker run -it python:3.10
-
+```
 - Stop all containers and delete all containers and images via UI (could be done via terminal)
 
 ## 🐘Setup Docker with PostgreSQL (database)
@@ -761,37 +760,37 @@ volumes:
 ---
 - Make sure all containers are stopped to free up all ports
 - From the same folder where the docker-compose.yaml is stored, run the following
-bash
+```bash
 docker compose up
-
+```
 - After pulling both images, the containers should run
 - The terminal will be dedicated to these containers
 - Install extension on VS Code: Docker by Microsoft
 - You can see and interact with containers from VS Code directly (Docker panel)
 - Check Docker containers that are running via terminal
-bash
+```bash
 docker ps
-
+```
 - Check Docker networks via terminal
-bash
+```bash
 docker network ls
-
+```
 
 ### Setup pgcli
 - pgcli is a Python package, useful to interact with PostgreSQL DBs via terminal
 - Install pgcli dependencies (for reference https://www.pgcli.com/install)
-bash
+```bash
 sudo apt-get install libpq-dev
-
+```
 
 - enter cuda env
-bash
+```bash
 conda activate toolbox-env
-
+```
 - From a new terminal, install pgcli, with the correct conda env activated
-bash
+```bash
 pip install pgcli
-
+```
 
 ### Connect to PostgreSQL via pgcli
 - Access the PostgreSQL DB on Docker container, use the credentials from Docker compose file
@@ -799,18 +798,18 @@ pip install pgcli
   - -p is port
   - -u is user
   - -d is DB name
-bash
+```bash
 pgcli -h localhost -p 5432 -u root -d my_test_db
-
+```
 - Enter password root
 - Check empty list of tables inside DB
-bash
+```bash
 \dt
-
+```
 - Test SQL with the following command
-bash
+```bash
 SELECT 1 AS hello_world;
-
+```
 - Quit from pgcli by running quit
 
 ### Connect to PostgreSQL via pgAdmin
@@ -828,7 +827,7 @@ SELECT 1 AS hello_world;
 ### Create sample table via pgAdmin
 - Create sample table
 - Open query tool and run the following 
-sql
+```sql
 CREATE TABLE contacts (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR(100),
@@ -836,33 +835,33 @@ CREATE TABLE contacts (
   email VARCHAR(150),
   phone VARCHAR(20)
 );
-
+```
 - Populate table with sample data 
-sql
+```sql
 INSERT INTO contacts (first_name, last_name, email, phone)
 VALUES
   ('Alice', 'Johnson', 'alice.johnson@example.com', '555-1234'),
   ('Bob', 'Smith', 'bob.smith@example.com', '555-5678'),
   ('Carol', 'Davis', 'carol.davis@example.com', '555-8765');
-
+```
 - Expand test_pg -> Databases -> my_test_db -> Schemas -> public -> Tables -> contacts -> right click -> View/Edit Data -> All Rows
 
 ### Access same test table via pgcli
 - On pgcli run \dt and see new table
 - Run the following SQL queries to explore the data
 - Use q to quit the query results view after each query
-sql
+```sql
 SELECT * FROM contacts;
-
-sql
+```
+```sql
 SELECT * FROM contacts ORDER BY last_name;
-
-sql
+```
+```sql
 SELECT * FROM contacts WHERE first_name = 'Alice';
-
-sql
+```
+```sql
 SELECT * FROM contacts WHERE phone LIKE '555%';
-
+```
 
 ## Follow on Socials Github
 [Website](https://msaidev.com/)\
